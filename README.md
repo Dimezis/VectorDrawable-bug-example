@@ -41,3 +41,5 @@ Note that `VectorDrawableCompat`, which is used on versions prior to SDK 24, wor
 A regular PNG image (a `BitmapDrawable`) also has no issues.
 
 Though the described flow looks kinda weird and complicated, it's a part of real use case in my BlurView library (https://github.com/Dimezis/BlurView), which relies on drawing the View hierarchy on own Canvas for later use.
+
+![alt tag](https://github.com/Dimezis/VectorDrawable-bug-example/blob/master/blurred_VectorDrawable.png)
