@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 public class LolView extends FrameLayout {
 
-    private Canvas lolCanvas;
+    private Canvas softwareCanvas;
     //root view of activity
     private View root;
 
@@ -19,7 +19,7 @@ public class LolView extends FrameLayout {
         setWillNotDraw(false);
         //bitmap size doesn't matter
         Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
-        lolCanvas = new Canvas(bitmap);
+        softwareCanvas = new Canvas(bitmap);
     }
 
     public void setRoot(@NonNull View root) {
@@ -35,13 +35,13 @@ public class LolView extends FrameLayout {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (canvas != lolCanvas) {
-            lolCanvas.save();
+        if (canvas != softwareCanvas) {
+            softwareCanvas.save();
             //scale is a main trigger here, VectorDrawable will be downscaled just as much as this canvas
-            lolCanvas.scale(1f / 8, 1f / 8);
+            softwareCanvas.scale(1f / 8, 1f / 8);
             //draw all views on our canvas
-            root.draw(lolCanvas);
-            lolCanvas.restore();
+            root.draw(softwareCanvas);
+            softwareCanvas.restore();
             invalidate();
         }
     }
