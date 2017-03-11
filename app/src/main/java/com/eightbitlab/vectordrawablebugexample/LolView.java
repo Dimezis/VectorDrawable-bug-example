@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 public class LolView extends FrameLayout {
 
     private Canvas lolCanvas;
+    //root view of activity
     private View root;
 
     {
@@ -32,11 +33,14 @@ public class LolView extends FrameLayout {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        lolCanvas.save();
-        //scale is a main trigger here, VectorDrawable will be downscaled just as much as this canvas
-        lolCanvas.scale(1f / 8, 1f / 8);
-        root.draw(lolCanvas);
-        lolCanvas.restore();
-        invalidate();
+        if (canvas != lolCanvas) {
+            lolCanvas.save();
+            //scale is a main trigger here, VectorDrawable will be downscaled just as much as this canvas
+            lolCanvas.scale(1f / 8, 1f / 8);
+            //draw all views on our canvas
+            root.draw(lolCanvas);
+            lolCanvas.restore();
+            invalidate();
+        }
     }
 }
