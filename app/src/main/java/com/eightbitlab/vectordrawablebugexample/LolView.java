@@ -30,6 +30,8 @@ public class LolView extends FrameLayout {
         super(context, attrs);
     }
 
+    //note, that if you will move this code outside of draw method (for example to Activity)
+    //this bug won't be triggered
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
