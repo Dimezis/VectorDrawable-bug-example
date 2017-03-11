@@ -16,6 +16,7 @@ public class LolView extends FrameLayout {
 
     {
         setWillNotDraw(false);
+        //bitmap size doesn't matter
         Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
         lolCanvas = new Canvas(bitmap);
     }
@@ -32,6 +33,7 @@ public class LolView extends FrameLayout {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         lolCanvas.save();
+        //scale is a main trigger here, VectorDrawable will be downscaled just as much as this canvas
         lolCanvas.scale(1f / 8, 1f / 8);
         root.draw(lolCanvas);
         lolCanvas.restore();
