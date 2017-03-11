@@ -12,7 +12,7 @@ Steps to reproduce:
 For example, I have used a regular `RecyclerView` populated with this kind of ImageViews.
 
 2) Create a custom View with overridden `draw()` method (full View code is here https://github.com/Dimezis/VectorDrawable-bug-example/blob/master/app/src/main/java/com/eightbitlab/vectordrawablebugexample/LolView.java):
-```
+```Java
     public void draw(Canvas canvas) {
         super.draw(canvas);
         if (canvas != softwareCanvas) {
